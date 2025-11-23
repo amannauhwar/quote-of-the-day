@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote of the Day</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="card">
+        <span class="title">Quote of the Day</span>
+        
+        <div class="loader" id="loader"></div>
+
+        <div id="quote-container">
+            <h1 class="quote-text">
+                <span class="quote-icon">“</span>
+                <span id="quote">Loading inspiration...</span>
+            </h1>
+            <p class="author" id="author"></p>
+        </div>
+
+        <div class="btn-container">
+            <button class="twitter-btn" id="twitter" title="Tweet This!">
+                Tweet
+            </button>
+            <button class="new-quote-btn" id="new-quote">
+                New Quote
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

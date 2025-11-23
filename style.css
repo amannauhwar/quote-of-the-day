@@ -1,0 +1,168 @@
+/* --- CSS Reset & Variables --- */
+:root {
+    --primary-color: #ffffff;
+    --accent-color: #e0e0e0;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --- Body & Background --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* High-quality nature background from Unsplash */
+    background: url('https://images.unsplash.com/photo-1470252649378-9c297424743b?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+    color: var(--primary-color);
+    position: relative;
+}
+
+/* Dark overlay to ensure text readability */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+}
+
+/* --- Glassmorphism Card --- */
+.card {
+    position: relative;
+    z-index: 1;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 3rem;
+    width: 90%;
+    max-width: 700px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* --- Typography --- */
+.title {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    opacity: 0.8;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.quote-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    line-height: 1.4;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    min-height: 100px; /* Prevents layout jump while loading */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quote-icon {
+    font-size: 3rem;
+    vertical-align: top;
+    opacity: 0.6;
+    margin-right: 10px;
+}
+
+.author {
+    font-size: 1.1rem;
+    font-weight: 300;
+    opacity: 0.9;
+    margin-bottom: 2.5rem;
+}
+
+.author::before {
+    content: "— ";
+}
+
+/* --- Buttons --- */
+.btn-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+button {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.new-quote-btn {
+    background-color: var(--primary-color);
+    color: #333;
+}
+
+.new-quote-btn:hover {
+    background-color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+.twitter-btn {
+    background-color: rgba(29, 161, 242, 0.2);
+    color: #fff;
+    border: 1px solid rgba(29, 161, 242, 0.5);
+}
+
+.twitter-btn:hover {
+    background-color: #1da1f2;
+    border-color: #1da1f2;
+}
+
+/* --- Loading Spinner --- */
+.loader {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #fff;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    display: none; /* Hidden by default */
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 600px) {
+    .quote-text {
+        font-size: 1.5rem;
+    }
+    .card {
+        padding: 2rem;
+    }
+}
